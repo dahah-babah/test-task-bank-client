@@ -19,10 +19,12 @@ class Header extends React.Component<any, any> {
             )        
         } else {
             return (
-                <HeaderStyle justify={'flex-start'} width={'336px'}>
-                    <BackArrow src={arrow} onClick={() => this.handleClick()}/>
-                    <div>
-                        {pageName}
+                <HeaderStyle justify={'center'} width={'100%'}>
+                    <div style={{ display: 'flex', alignItems: 'center', width: '336px' }}>
+                        <BackArrow src={arrow} onClick={() => this.handleClick()}/>
+                        <div>
+                            {pageName}
+                        </div>
                     </div>
                 </HeaderStyle>
             )  

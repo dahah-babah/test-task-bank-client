@@ -3,7 +3,8 @@
 Usage:
 1. ```git clone https://github.com/dahahORbabah/test-task-bank-client.git```
 2. ```cd app```
-3. ```npm start```
+3. ```npm i```
+4. ```npm start```
 
 # Screenshots
 |1|2|3|

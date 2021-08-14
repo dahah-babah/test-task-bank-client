@@ -1,6 +1,8 @@
-export const defaultState = {
+import { IMainState } from "../types";
+
+export const defaultState: IMainState = {
     currentUser: null,
     currencyRate: null,
     selectedCurrancy: 'gbp',
-    page: 0,
+    isLoading: true,
 }

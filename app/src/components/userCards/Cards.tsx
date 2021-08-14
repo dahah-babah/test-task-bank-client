@@ -3,17 +3,18 @@ import { CardsItem, CardsList, CardIcon, CardTitle, Dot } from './styles'
 import UsersData from '../../commonFiles/mockUsers.json'
 import { getCardImage } from '../../utils/cardUtil'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { useActions } from '../../hooks/useActions'
 
 const Cards: FC = () => {
-    const handleClick = (cardType: string) => {
-        // const newCurrentUser = UsersData.find(user => user.type === cardType)
-
-        // this.props.dispatch(actions.setCurrentUser({ ...newCurrentUser }))        
-        // this.props.dispatch(actions.setPage({ page: 0 }))        
-    }
-
     const users = UsersData
     const currentUser = useTypedSelector(state => state.mainReducer.currentUser)
+    const { setCurrentUser } = useActions()
+
+    const handleClick = (cardType: string) => {
+        const newCurrentUser = UsersData.find(user => user.type === cardType)
+
+        setCurrentUser(newCurrentUser || currentUser)
+    }
 
     if (users != null) {
         return (
@@ -23,7 +24,7 @@ const Cards: FC = () => {
                         const visibility = currentUser?.type === user.type ? 'visible' : 'hidden'
 
                         return (
-                            <CardsItem key={index} onClick={handleClick(user.type)}>
+                            <CardsItem key={index} onClick={() => handleClick(user.type)}>
                                 <CardIcon src={getCardImage(user.type)}/>
                                 <CardTitle>{user.card_number}</CardTitle>
                                 <Dot visibility={visibility}/>
@@ -34,7 +35,7 @@ const Cards: FC = () => {
             </CardsList>
         )
     } else {
-        return <div>Loading...</div>
+        return <div>Users List is Empty :^(</div>
     }
 }
 

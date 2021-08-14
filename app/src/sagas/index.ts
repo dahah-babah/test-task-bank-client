@@ -15,6 +15,6 @@ function* saga(): any {
     const users = usersData // mock data
     const currencyRateData = yield call(getCurrancyRate)
     
-    yield put(actions.setCurrentUser({ ...users[0] }))
-    yield put(actions.setCurrencyRate({ ...currencyRateData.Valute }))
+    yield put(actions.setCurrentUser(users[0]))
+    yield put(actions.setCurrencyRate({ isLoading: false, currencyRate: currencyRateData.Valute }))
 }

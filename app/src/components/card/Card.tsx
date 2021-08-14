@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
+import { Link } from 'react-router-dom'
 
 import Balance from './balance/Balance'
 import CardHeader from './header/CardHeader'
@@ -7,17 +8,14 @@ import CardHolder from './user/CardHolder'
 import { CardStyle } from './styles'
 
 const Card: FC = () => {
-    const handleClick = (event: React.MouseEvent<HTMLDivElement>): void => {
-        event.preventDefault()
-        // this.props.dispatch(actions.setPage({ page: 1 }))
-    }
-
     return (
-        <CardStyle onClick={handleClick}>
-            <CardHeader />
-            <CardHolder />
-            <Balance />
-        </CardStyle>
+        <Link to={'/cards'} style={{ textDecoration: 'none' }}>
+            <CardStyle>
+                <CardHeader />
+                <CardHolder />
+                <Balance />
+            </CardStyle>
+        </Link>
     )
 }
 

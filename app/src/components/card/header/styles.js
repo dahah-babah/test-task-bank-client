@@ -9,6 +9,7 @@ export const CardHeaderConatiner = styled.div`
 
 export const CardHeaderLogo = styled.img`
     margin-left: 22px;
+    padding-top: 28px;
 `
 
 export const CardNumber = styled.div`
@@ -18,4 +19,5 @@ export const CardNumber = styled.div`
     line-height: 32px;
     color: #141414;
     margin-right: 32px;
+    padding-top: 28px;
 `

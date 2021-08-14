@@ -1,31 +1,25 @@
-import { constants } from "../../commonFiles/constants"
+import { IUser } from "../../types"
+import { Action, ActionTypes } from "../../types/actionTypes"
 
 export const actions = {
-    setCurrentUser(value: any) {
+    setCurrentUser(value: IUser): Action {
         return {
-            type: constants.SET_CURRENT_USER,
+            type: ActionTypes.SET_CURRENT_USER,
             payload: value
         }
     },
 
-    setCurrencyRate(value: any) {
+    setCurrencyRate(value: any): Action {
         return {
-            type: constants.SET_CURRENCY_RATE,
+            type: ActionTypes.SET_CURRENCY_RATE,
             payload: value
         }
     },
 
-    setSelectedCurrency(value: any) {
+    setSelectedCurrency(value: string): Action {
         return {
-            type: constants.SET_SELECTED_CURRENCY,
+            type: ActionTypes.SET_SELECTED_CURRENCY,
             payload: value
         }
     },
-
-    setPage(value: any) {
-        return {
-            type: constants.SET_PAGE,
-            payload: value
-        }
-    }
 }

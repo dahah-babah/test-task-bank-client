@@ -6,7 +6,7 @@ import { HistoryContainer, HistoryTitle, HistoryList, HistoryItem, OperationTitl
 
 const History: FC = () => {
     const { currentUser, selectedCurrancy, currencyRate } = useTypedSelector(state => state.mainReducer)
-    const transaction_history = getUserHistory(currentUser.type)    
+    const transaction_history = getUserHistory(currentUser!.type)    
 
     if (transaction_history !== null) {
         return (

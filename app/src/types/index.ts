@@ -24,11 +24,11 @@ export interface ICurrencyRate {
     Value: number,
 }
 
-export interface IMainReducer {
+export interface IMainState {
     currencyRate: any,
-    currentUser: IUser,
-    page: number,
+    currentUser: IUser | null,
     selectedCurrancy: string,
+    isLoading: boolean,
 }
 
 export interface ICurrencyList {

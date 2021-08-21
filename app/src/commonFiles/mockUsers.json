@@ -30,7 +30,7 @@
     "card_number": "4455 8897 3135 1499",
     "type": "visa",
     "cardholder_name": "Peter Gavrilin",
-    "valid": "12/22",
+    "valid": "10/24",
     "balance": 4674.2,
     "transaction_history": [
       {
@@ -63,7 +63,7 @@
     "card_number": "4455 9921 6789 1999",
     "type": "unionpay",
     "cardholder_name": "Igor Smolov",
-    "valid": "12/22",
+    "valid": "05/23",
     "balance": 9317.14,
     "transaction_history": [
       {

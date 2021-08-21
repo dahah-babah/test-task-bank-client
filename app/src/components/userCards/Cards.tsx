@@ -21,13 +21,13 @@ const Cards: FC = () => {
             <CardsList>
                 {
                     users.map((user, index) => {
-                        const visibility = currentUser?.type === user.type ? 'visible' : 'hidden'
+                        const scale = currentUser?.type === user.type ? 1 : 0
 
                         return (
                             <CardsItem key={index} onClick={() => handleClick(user.type)}>
                                 <CardIcon src={getCardImage(user.type)}/>
                                 <CardTitle>{user.card_number}</CardTitle>
-                                <Dot visibility={visibility}/>
+                                <Dot scale={scale}/>
                             </CardsItem>
                         )
                     })

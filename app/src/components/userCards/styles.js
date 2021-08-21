@@ -36,5 +36,6 @@ export const Dot = styled.div`
     border-radius: 100%;
     margin-right: 20px;
     margin-left: auto;
-    visibility: ${props => props.visibility};
+    transition: .2s transform ease-out;
+    transform: ${props => `scale(${props.scale})`};
 `

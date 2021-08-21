@@ -1,5 +1,6 @@
 import { FC } from 'react'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 
 import Header from './header/Header'
 import Card from './card/Card'
@@ -31,8 +32,15 @@ const CardsList: FC = () => {
     )
 }
 
+const routes = [{
+    path: '/', Component: Home
+}, {
+    path: '/cards', Component: CardsList
+}]
+
 const BankMainPage: FC = () => {
     const { isLoading } = useTypedSelector(state => state.mainReducer)
+    const animation = { duration: 300, classNames: 'page' } 
 
     if (isLoading) {
         return (
@@ -42,10 +50,23 @@ const BankMainPage: FC = () => {
 
     return (
         <Router>
-            <Switch>
-                <Route exact path={'/'} component={Home}/>
-                <Route exact path={'/cards'} component={CardsList}/>
-            </Switch>
+            {routes.map(({ path, Component }) => 
+                <Route key={path} exact path={path}>
+                    {({ match }) => (
+                        <CSSTransition
+                            key={path} 
+                            in={match != null} 
+                            timeout={animation.duration} 
+                            classNames={animation.classNames}
+                            unmountOnExit
+                        >
+                            <div className={animation.classNames}>
+                                <Component />
+                            </div>
+                        </CSSTransition>
+                    )}
+                </Route>
+            )}
         </Router>
     )
 }
